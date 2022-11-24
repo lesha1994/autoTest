@@ -26,6 +26,10 @@ public  class Base  {
         driver.get("https://qa-pos.b2bsoft.com/");
 
     }
+
+
+
+
     //@AfterClass
     //public void finish(){
       //  driver.quit();
