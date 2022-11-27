@@ -1,55 +1,56 @@
 package pages;
 
-import io.opentelemetry.api.internal.Utils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
 import static tests.Base.getDriver;
 
 public  class BasePage {
-    WebDriver driver ;
+    protected WebDriver driver;
 
-    public BasePage(WebDriver driver) {
+    protected BasePage(WebDriver driver) {
         this.driver = getDriver();
 
     }
 
-    WebElement find (By locator){
+    protected WebElement find(By locator) {
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return driver.findElement(locator);
     }
 
 
-    public void sendKeys(By locator, String text){
+    protected void sendKeys(By locator, String text){
 
         find(locator).sendKeys(text);
     }
 
-    public String getText(By locator){
+    protected String getText(By locator){
 
         return  find(locator).getText();
     }
 
-    public String getValue(By locator){
+    protected String getValue(By locator){
 
 
         return find(locator).getAttribute("value");
 
     }
 
-    public void clickButton (By locator){
-
+    protected void clickButton (By locator){
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
          find(locator).click();
     }
 
-    public String getTitle(){
+    protected String getTitle(){
 
         return driver.getTitle();
 
     }
-
-
-
 }

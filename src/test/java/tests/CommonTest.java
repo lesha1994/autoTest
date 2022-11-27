@@ -1,22 +1,25 @@
 package tests;
 
 import actions.MainPageActions;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class CommonTest extends Base{
 
 
-
-    @Test
-    public void testData () throws InterruptedException {
+    @BeforeTest
+    public void signIn(){
         MainPageActions mainPageActions = new MainPageActions(driver);
-
         mainPageActions.fillAccessCode("9905400");
         mainPageActions.clickContinueButton();
         mainPageActions.userNameField("testadmin");
         mainPageActions.passWordField("Test123456");
         mainPageActions.LoginButton();
+    }
+
+    @Test(priority=1)
+    public void selectStoreAndChooseLanguageTest() throws InterruptedException {
+        MainPageActions mainPageActions = new MainPageActions(driver);
         mainPageActions.checkTitle();
         mainPageActions.clickStoreDropDown();
         mainPageActions.selectStore();
@@ -24,10 +27,9 @@ public class CommonTest extends Base{
         mainPageActions.clickOnDropDownLanguage();
         mainPageActions.chooseLanguageOfSystem();
         mainPageActions.clickOK();
-
     }
 
-    @Test
+    @Test(priority=2)
     public void cashTransactionTest() throws InterruptedException {
         MainPageActions mainPageActions = new MainPageActions(driver);
         mainPageActions.clickOnSearchInput();
@@ -37,15 +39,5 @@ public class CommonTest extends Base{
         mainPageActions.clickCashBtn();
         mainPageActions.clickExactBtn();
         mainPageActions.clickCompleteBtn2();
-
     }
-
-
-
-
-
-
-
-
-
 }
