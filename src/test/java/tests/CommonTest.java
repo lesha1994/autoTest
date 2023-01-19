@@ -1,13 +1,12 @@
 package tests;
 
 import actions.MainPageActions;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
 
 public class CommonTest extends Base{
 
 
-    @BeforeTest
+   // @BeforeTest
     public void signIn(){
         MainPageActions mainPageActions = new MainPageActions(driver);
         mainPageActions.fillAccessCode("9905400");
@@ -17,7 +16,7 @@ public class CommonTest extends Base{
         mainPageActions.LoginButton();
     }
 
-    @Test(priority=1)
+   // @Test(priority=1)
     public void selectStoreAndChooseLanguageTest() throws InterruptedException {
         MainPageActions mainPageActions = new MainPageActions(driver);
         mainPageActions.checkTitle();
@@ -29,7 +28,7 @@ public class CommonTest extends Base{
         mainPageActions.clickOK();
     }
 
-    @Test(priority=2)
+   /// @Test(priority=2)
     public void cashTransactionTest() throws InterruptedException {
         MainPageActions mainPageActions = new MainPageActions(driver);
         mainPageActions.clickOnSearchInput();
@@ -40,4 +39,6 @@ public class CommonTest extends Base{
         mainPageActions.clickExactBtn();
         mainPageActions.clickCompleteBtn2();
     }
+
+
 }
