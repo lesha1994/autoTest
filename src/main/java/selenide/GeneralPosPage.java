@@ -1,6 +1,7 @@
 package selenide;
 
 import com.codeborne.selenide.Condition;
+import constants.EnumTransactionFlowButtons;
 import constants.EnumGeneralPageButtonsAndFields;
 import constants.EnumSideBarsIconsAndButtonsName;
 
@@ -33,9 +34,7 @@ public class GeneralPosPage extends BasePage {
 
 
 
-    public void clickOnCashPaymentButton(EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {
-        $x(String.format("(//div[@class = 'main-keyboard__item'])[%s]", enumGeneralPageButtonsAndFields.toString())).click();
-    }
+
 
 
 

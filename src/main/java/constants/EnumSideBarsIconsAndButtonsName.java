@@ -10,7 +10,7 @@ public enum EnumSideBarsIconsAndButtonsName {
     ADDITIONAL_INFO("info"),
     TIME_CLOCK("clock"),
     LOGOUT("logout"),
-    SIDEBAR_MENU("menu__container")
+    SIDEBAR_MENU("menu__container"),
     ;
 
 

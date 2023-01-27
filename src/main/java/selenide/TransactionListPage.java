@@ -15,6 +15,8 @@ public class TransactionListPage extends BasePage{
 
     final String XPATH_TO_BUTTON_TRANSACTION_DETAILS = "//button[text() = '%s']"; //button/span[text() = '%s']
 
+    String XPATH_TO_CHECKBOX_TRANSACTION_DETAILS = "//i[@class= '%s']";
+
 
 
     public void clickOnIDInTransactionList(String id) {
@@ -31,6 +33,10 @@ public class TransactionListPage extends BasePage{
         String locator = XPATH_TO_BUTTON_TRANSACTION_DETAILS;
         if (enumTransactionListButton == EnumTransactionList.CONTINUE_BUTTON) locator = locator.replace("button", "button/span");
         $x(String.format(locator, enumTransactionListButton.toString())).click();
+    }
+
+    public void clickOnCheckBoxButtonTransactionDetails(EnumTransactionList enumTransactionList){
+        $x(String.format(XPATH_TO_CHECKBOX_TRANSACTION_DETAILS,enumTransactionList)).click();
     }
 
 

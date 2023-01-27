@@ -6,6 +6,9 @@ public enum EnumTransactionList {
     VOID_BUTTON("Void"),
     CONTINUE_BUTTON("Continue"),
 
+    CHECK_BOX("icon icon-check"),
+    RETURN_BUTTON("Return"),
+
     ;
 
 

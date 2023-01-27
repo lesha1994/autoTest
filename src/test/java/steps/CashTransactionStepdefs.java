@@ -4,6 +4,7 @@ import constants.*;
 import io.cucumber.java.en.And;
 import selenide.GeneralPosPage;
 import selenide.TransactionFlowPage;
+import selenide.TransactionListPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -31,20 +32,20 @@ public class CashTransactionStepdefs {
     }
 
     @And("I click {} button in Cash Payment block")
-    public void iClickEXACTButtonTo(EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {
-        generalPosPage.clickOnCashPaymentButton(enumGeneralPageButtonsAndFields);
-    }
-
-    @And("I click {} button in Cash Payment")
-    public void iClickButtonInCashPayment(EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {
-        generalPosPage.clickOnCashPaymentButton(enumGeneralPageButtonsAndFields);
+    public void iClickEXACTButtonTo(EnumTransactionFlowButtons enumCashPaymentButton) {
+        transactionFlowPage.clickOnButtonInCashPaymentDialog(enumCashPaymentButton);
     }
 
     @And("I click {} button on General Page")
     public void iClickButton(EnumGeneralPageButtonsAndFields enumLoginButtonsAndDropdowns) {
         System.out.println();
-        generalPosPage.clickButton(enumLoginButtonsAndDropdowns);
+        generalPosPage.clickButtonByAttributeValueWithoutAttributeName(enumLoginButtonsAndDropdowns);
         System.out.println();
+    }
+
+    @And("I click {} button in Transaction Flow Page")
+    public void iCLickButtonInTransactionFlowPage(EnumTransactionFlowButtons enumTransactionFlowButtons) {
+        transactionFlowPage.clickButtonByAttributeValueWithoutAttributeName(enumTransactionFlowButtons);
     }
 
 
@@ -53,9 +54,9 @@ public class CashTransactionStepdefs {
         generalPosPage.clickInputField(EnumGeneralPageButtonsAndFields.SEARCH_INPUT);
         generalPosPage.inputInField(EnumGeneralPageButtonsAndFields.SEARCH_INPUT, "2720");
         generalPosPage.clickOnProduct(EnumGeneralPageButtonsAndFields.PRODUCT);
-        generalPosPage.clickOnCashPaymentButton(EnumGeneralPageButtonsAndFields.MAKE_PAYMENT);
-        generalPosPage.clickOnCashPaymentButton(EnumGeneralPageButtonsAndFields.CASH);
-        generalPosPage.clickButton(EnumGeneralPageButtonsAndFields.EXACT);
+        transactionFlowPage.clickOnButtonToConfirmOrder(EnumTransactionFlowButtons.MAKE_PAYMENT);
+        transactionFlowPage.chooseCashPaymentType(EnumGeneralPageButtonsAndFields.CASH);
+        transactionFlowPage.clickOnButtonInCashPaymentDialog(EnumTransactionFlowButtons.EXACT);
     }
 
 

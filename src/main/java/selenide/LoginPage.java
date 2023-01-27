@@ -20,9 +20,6 @@ public class LoginPage extends BasePage {
 
 
 
-
-
-
     public void clickDropdown(EnumLoginButtonsAndDropdowns enumLoginButtonsAndDropdowns) {
         String locator = String.format("//label[text() = '%s']/..//div[@class='dropdown__header']", enumLoginButtonsAndDropdowns.toString());
         System.out.println(locator);

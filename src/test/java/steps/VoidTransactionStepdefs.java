@@ -27,11 +27,6 @@ public class VoidTransactionStepdefs {
        // TestCache.putInTestCacheMap("lastIdBefore" + Thread.currentThread().getId(), lastId);
     }
 
-    @And("I get last transaction id after")
-    public void iGetLastTransactionIdAfter() {
-        //String lastId= new TransactionListPage().getLastId();
-       // TestCache.putInTestCacheMap("lastIdBefore" + Thread.currentThread().getId(), lastId);
-    }
 
     @And("I check that transaction was successful")
     public void iCheckThatTransactionWasSuccessful() {
@@ -50,6 +45,6 @@ public class VoidTransactionStepdefs {
     @And("I click on {} button on transaction details screen")
     public void iClickOnVOIDButtonOnTransactionDetailsScreen(EnumTransactionList enumTransactionList) {
         transactionListPage.clickOnButtonTransactionDetailsByText(enumTransactionList);
-
     }
+
 }

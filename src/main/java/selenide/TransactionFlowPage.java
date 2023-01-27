@@ -2,7 +2,10 @@ package selenide;
 
 import com.codeborne.selenide.Condition;
 import constants.EnumGeneralPageButtonsAndFields;
+import constants.EnumTransactionFlowButtons;
 import constants.IForEnumButtonsValue;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -15,8 +18,16 @@ public class TransactionFlowPage extends BasePage {
    }
 
 
-   public void chooseCashPaymentType(EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {
-       $x(String.format( "//button [@* ='payment-item']//div[text()='%s']", enumGeneralPageButtonsAndFields.toString())).click();
+   public void clickOnButtonToConfirmOrder(EnumTransactionFlowButtons enumTransactionFlowButton) {
+       $x(String.format("//button[@id='cart-cash-button']/span[text()='%s']", enumTransactionFlowButton.toString())).click();
    }
+
+    public void clickOnButtonInCashPaymentDialog(EnumTransactionFlowButtons enumTransactionFlowButtons) {
+        $x(String.format("(//div[@class = 'main-keyboard__item'])[%s]", enumTransactionFlowButtons.toString())).click();
+    }
+
+    public void chooseCashPaymentType(EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {
+        $x(String.format( "//button [@* ='payment-item']//div[text()='%s']", enumGeneralPageButtonsAndFields.toString())).click();
+    }
 
 }

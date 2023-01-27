@@ -41,7 +41,7 @@ public class LoginAndLogoutStepdefs {
     @And("I click {} button on Login Page")
     public void iClickButton(EnumLoginButtonsAndDropdowns enumLoginButtonsAndDropdowns) {
         System.out.println();
-        loginPage.clickButton(enumLoginButtonsAndDropdowns);
+        loginPage.clickButtonByAttributeValueWithoutAttributeName(enumLoginButtonsAndDropdowns);
         System.out.println();
     }
 
@@ -92,8 +92,8 @@ public class LoginAndLogoutStepdefs {
         generalPosPage.clickSideIcon(enumSideBarsIconsAndButtonsName);
     }
 
-    @And("I check if {} display")
-    public void iCheckIfSIDEBAR_MENUDisplay(EnumSideBarsIconsAndButtonsName enumSideBarsIconsAndButtonsName) {
-        generalPosPage.checkSideBarOnGeneralPogPageIsDisplayed(enumSideBarsIconsAndButtonsName);
+    @And("I check if SIDEBAR_MENU display")
+    public void iCheckIfSIDEBAR_MENUDisplay() {
+        generalPosPage.checkSideBarOnGeneralPogPageIsDisplayed();
     }
 }

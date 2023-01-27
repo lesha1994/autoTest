@@ -36,27 +36,56 @@ Feature: Login into
     And I sleep for 4 seconds
 
 
+  @ui
+  Scenario: Void transaction
+    And I processed new transaction without complete
+    And I get transaction id on receipt page
+    And I click COMPLETE_TRANSACTION button on General Page
+    And I click on TRANSACTIONS button in sidebar
+    And I click on line by id from last transaction
+    And I click on VOID_BUTTON button on transaction details screen
+    And I click on CONTINUE_BUTTON button on transaction details screen
 
 
-      @ui
-      Scenario: Void transaction
-        And I processed new transaction without complete
-        And I get transaction id on receipt page
-        And I click COMPLETE_TRANSACTION button on General Page
-        And I click on TRANSACTIONS button in sidebar
-        And I click on line by id from last transaction
-        And I click on VOID_BUTTON button on transaction details screen
-        And I click on CONTINUE_BUTTON button on transaction details screen
+  @ui
+  Scenario: Return transaction
+    And I processed new transaction without complete
+    And I get transaction id on receipt page
+    And I click COMPLETE_TRANSACTION button in Transaction Flow Page
+    And I click on TRANSACTIONS button in sidebar
+    And I click on line by id from last transaction
+    And I click on CHECK_BOX button on transaction details screen
+    And I click on RETURN_BUTTON button on transaction details screen
+    And I click ISSUE_REFUND button on General Page
+    And I choose payment type CASH
+    And I click COMPLETE_TRANSACTION button in Transaction Flow Page
 
 
+  @ui
+  Scenario: Exchange transaction
+    And I processed new transaction without complete
+    And I get transaction id on receipt page
+    And I click COMPLETE_TRANSACTION button on General Page
+    And I click on TRANSACTIONS button in sidebar
+    And I click on line by id from last transaction
+    And I click on CHECK_BOX button on transaction details screen
+    And I click on RETURN_BUTTON button on transaction details screen
+    And I input in search field SEARCH_INPUT value '2720'
+    And I click on PRODUCT that was found
+    And I click MAKE_EXCHANGE button on General Page
 
 
-      @ui
-      Scenario: Successful logout
-        And I click on SideBar icon LOGOUT
-        And I check if I can see USERNAME field on Login Page
-        And I check if I can see PASSWORD field on Login Page
-        And I check if I can see ACCESS_CODE field on Login Page
+  @ui
+  Scenario: To check if Time clock are available to be opened
+    And I click on TIME_CLOCK button in sidebar
+    And I check that Time Clock page is opened
+
+  @ui
+  Scenario: Successful logout
+    And I click on SideBar icon LOGOUT
+    And I check if I can see USERNAME field on Login Page
+    And I check if I can see PASSWORD field on Login Page
+    And I check if I can see ACCESS_CODE field on Login Page
 
 
 

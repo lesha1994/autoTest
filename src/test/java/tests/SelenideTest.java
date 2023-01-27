@@ -24,11 +24,11 @@ public class SelenideTest {
     public void testLogin() {
         LoginPage loginPage = new LoginPage();
         loginPage.inputInField(EnumLoginFields.ACCESS_CODE, "9905400");
-        loginPage.clickButton(EnumLoginButtonsAndDropdowns.CONTINUE);
+        loginPage.clickButtonByAttributeValueWithoutAttributeName(EnumLoginButtonsAndDropdowns.CONTINUE);
         loginPage.inputInField(EnumLoginFields.USERNAME, "testadmin");
         loginPage.inputInField(EnumLoginFields.PASSWORD, "Test123456");
-        loginPage.clickButton(EnumLoginButtonsAndDropdowns.LOGIN);
-        loginPage.clickButton(EnumLoginButtonsAndDropdowns.STORE);
+        loginPage.clickButtonByAttributeValueWithoutAttributeName(EnumLoginButtonsAndDropdowns.LOGIN);
+        loginPage.clickButtonByAttributeValueWithoutAttributeName(EnumLoginButtonsAndDropdowns.STORE);
 
         sleep(8000);
     }
