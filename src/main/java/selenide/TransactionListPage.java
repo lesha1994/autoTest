@@ -7,6 +7,7 @@ import constants.EnumTransactionList;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class TransactionListPage extends BasePage{
 
@@ -16,6 +17,8 @@ public class TransactionListPage extends BasePage{
     final String XPATH_TO_BUTTON_TRANSACTION_DETAILS = "//button[text() = '%s']"; //button/span[text() = '%s']
 
     String XPATH_TO_CHECKBOX_TRANSACTION_DETAILS = "//i[@class= '%s']";
+
+
 
 
 
@@ -38,6 +41,17 @@ public class TransactionListPage extends BasePage{
     public void clickOnCheckBoxButtonTransactionDetails(EnumTransactionList enumTransactionList){
         $x(String.format(XPATH_TO_CHECKBOX_TRANSACTION_DETAILS,enumTransactionList)).click();
     }
+
+    public String getTypeOfTransactionById(String id) {
+        sleep(3000);
+        Selenide.switchTo().frame("transactionsIframe");
+        String locator = String.format(XPATH_TO_FIRST_ELEMENTS_TRANSACTION_LIST, id) + "/../../div[7]/p";
+        System.out.println(locator);
+        String type = $x(locator).shouldBe(Condition.exist, Duration.ofSeconds(20)).getAttribute("data-tip");
+        Selenide.switchTo().defaultContent();
+        return type;
+    }
+
 
 
 }

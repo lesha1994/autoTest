@@ -7,6 +7,7 @@ public enum EnumTransactionFlowButtons implements IForEnumButtonsValue {
     ISSUE_REFUND("Issue Refund"),
     CASH_RETURN("Cash Return"),
     MAKE_EXCHANGE("Make Exchange"),
+    COMPLETE_TRANSACTION("Complete Transaction"),
 
     ;
     private final String buttonName;

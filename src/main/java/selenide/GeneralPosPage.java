@@ -23,7 +23,7 @@ public class GeneralPosPage extends BasePage {
     }
 
 
-    private static final String XPATH_TO_PRODUCT = "//div[translate(normalize-space(text()), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = \"%s\"]";
+    private static final String XPATH_TO_PRODUCT = "//ul[@class='search-dropdown__list']//div[translate(normalize-space(text()), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = \"%s\"]";
 
     public void clickOnProduct(EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {
         String locator = XPATH_TO_PRODUCT;

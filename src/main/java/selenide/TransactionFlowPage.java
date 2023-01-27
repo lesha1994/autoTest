@@ -5,6 +5,7 @@ import constants.EnumGeneralPageButtonsAndFields;
 import constants.EnumTransactionFlowButtons;
 import constants.IForEnumButtonsValue;
 
+import java.time.Duration;
 import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -30,4 +31,7 @@ public class TransactionFlowPage extends BasePage {
         $x(String.format( "//button [@* ='payment-item']//div[text()='%s']", enumGeneralPageButtonsAndFields.toString())).click();
     }
 
+    public void buttonIsNotDisplayed(EnumTransactionFlowButtons enumTransactionFlowButton) {
+       $x(String.format(XPATH_TO_BUTTON_BY_VALUE, enumTransactionFlowButton.toString())).shouldBe(Condition.disappear, Duration.ofSeconds(3));
+    }
 }

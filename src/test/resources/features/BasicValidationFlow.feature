@@ -68,11 +68,16 @@ Feature: Login into
     And I click COMPLETE_TRANSACTION button on General Page
     And I click on TRANSACTIONS button in sidebar
     And I click on line by id from last transaction
-    And I click on CHECK_BOX button on transaction details screen
+    And I click on checkbox GENERAL_CHECK_BOX
     And I click on RETURN_BUTTON button on transaction details screen
     And I input in search field SEARCH_INPUT value '2720'
     And I click on PRODUCT that was found
-    And I click MAKE_EXCHANGE button on General Page
+    And I click button MAKE_PAYMENT in Transaction Flow Page
+    And I click EXACT button in Cash Payment block
+    And I click COMPLETE_TRANSACTION button on General Page
+    And I check that COMPLETE_TRANSACTION button is not display in Transaction Flow Page
+    And I click on TRANSACTIONS button in sidebar
+    And I check that line with id from last transaction has type EXCHANGE
 
 
   @ui

@@ -59,6 +59,10 @@ public class CashTransactionStepdefs {
         transactionFlowPage.clickOnButtonInCashPaymentDialog(EnumTransactionFlowButtons.EXACT);
     }
 
+    @And("I click button {} in Transaction Flow Page")
+    public void iClickButtonInTranscationFlowPage(EnumTransactionFlowButtons enumTransactionFlowButton) {
+        transactionFlowPage.clickOnButtonToConfirmOrder(enumTransactionFlowButton);
+    }
 
 
     @And("I get transaction id on receipt page")
@@ -72,4 +76,12 @@ public class CashTransactionStepdefs {
     public void iChoosePaymentTypeCASH(EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {
         transactionFlowPage.chooseCashPaymentType(enumGeneralPageButtonsAndFields);
     }
+
+    @And("I check that {} button is not display in Transaction Flow Page")
+    public void iCheckThatCOMPLETE_TRANSACTIONButtonIsNotDisplayInTransactionFlowPage(EnumTransactionFlowButtons enumTransactionFlowButton) {
+        transactionFlowPage.buttonIsNotDisplayed(enumTransactionFlowButton);
+    }
+
 }
+
+

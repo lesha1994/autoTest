@@ -2,6 +2,7 @@ package steps;
 
 import constants.EnumSideBarsIconsAndButtonsName;
 import constants.EnumTransactionList;
+import constants.EnumTransactionStatusAndType;
 import constants.TestCache;
 import io.cucumber.java.en.And;
 import org.assertj.core.api.Assertions;
@@ -47,4 +48,18 @@ public class VoidTransactionStepdefs {
         transactionListPage.clickOnButtonTransactionDetailsByText(enumTransactionList);
     }
 
+    @And("I click on checkbox {}")
+    public void iClickOnCheckboxGENERAL_CHECK_BOX(EnumTransactionList enumTransactionList) {
+        transactionListPage.clickOnCheckBoxButtonTransactionDetails(enumTransactionList);
+    }
+
+    @And("I check that line with id from last transaction has type {}")
+    public void iCheckThatLineWithIdFromLastTransactionHasTypeEXCHANGE(EnumTransactionStatusAndType enumTransactionStatusAndType) {
+        System.out.println("needed type: " + enumTransactionStatusAndType);
+        String id = (String) TestCache.getFromTestCacheMap("idOfLastTransaction" + Thread.currentThread().getId());
+        id = String.valueOf(Integer.parseInt(id) + 1);
+        String type = transactionListPage.getTypeOfTransactionById(id);
+        System.out.println("received type: " + type);
+        Assertions.assertThat(type.toUpperCase()).isEqualTo(enumTransactionStatusAndType.toString().toUpperCase());
+    }
 }
