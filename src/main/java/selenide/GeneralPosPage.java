@@ -15,7 +15,13 @@ public class GeneralPosPage extends BasePage {
 
     public void clickSideIcon (EnumSideBarsIconsAndButtonsName enumSideBarsIconsAndButtonsName){
         $x(String.format(XPATH_TO_SIDEBAR_ITEMS,enumSideBarsIconsAndButtonsName.getValue())).should(Condition.visible, Duration.ofSeconds(20)).click();
+        $x(String.format(XPATH_TO_DEVICE_SETTING,enumSideBarsIconsAndButtonsName)).click();
     }
+
+    private static final String XPATH_TO_DEVICE_SETTING = "//span[text()= '%s']";
+
+
+
 
 
     public void clickInputField (EnumGeneralPageButtonsAndFields enumGeneralPageButtonsAndFields) {

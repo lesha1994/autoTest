@@ -11,6 +11,7 @@ public enum EnumSideBarsIconsAndButtonsName {
     TIME_CLOCK("clock"),
     LOGOUT("logout"),
     SIDEBAR_MENU("menu__container"),
+    DEVICE_SETTINGS("Device Settings")
     ;
 
 
