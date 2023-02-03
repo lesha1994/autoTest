@@ -1,6 +1,7 @@
 package selenide;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import constants.EnumPosSettingPage;
 
 import java.time.Duration;
@@ -9,11 +10,11 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class PosSettingsPage extends  BasePage {
 
-    private static final String XPATH_TO_BUTTONS_BY_CLASS = "//button[@class = '$s']";
+    private static final String XPATH_TO_BUTTONS_BY_CLASS = "//button[@class = '%s']";
 
-    private static final String XPATH_TO_DEVICE_TYPE = "//figure[@class = 'card']/p/span[text() ='$s']";
+    private static final String XPATH_TO_DEVICE_TYPE = "//figure[@class = 'card']/p/span[text() ='%s']";
 
-    private static final String XPATH_TO_PARTICULAR_TERMINAL = "//p[@class ='device_name']/span[text() = '$s']";
+    private static final String XPATH_TO_PARTICULAR_TERMINAL = "//p[@class ='device_name']/span[text() = '%s']";
 
     private static final String XPATH_TO_TOGGLE = "//div[@class = '%s']";
 
@@ -41,7 +42,6 @@ public class PosSettingsPage extends  BasePage {
 
     public void clickOnDotsButton(EnumPosSettingPage enumPosSettingPage){
         $x(String.format(XPATH_TO_DOTS_BUTTON,enumPosSettingPage)).click();
-
     }
 
 

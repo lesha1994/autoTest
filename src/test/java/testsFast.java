@@ -1,4 +1,6 @@
 import org.junit.Test;
+import selenide.GeneralPosPage;
+import selenide.TransactionListPage;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

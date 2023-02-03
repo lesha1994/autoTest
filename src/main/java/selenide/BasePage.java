@@ -1,6 +1,7 @@
 package selenide;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import constants.*;
 
 import java.time.Duration;
@@ -19,7 +20,9 @@ public class BasePage {
     // //div[@class='tableBody tableGrid']/div[1]/div[2]/p - локатор для транзакции в транказшн листе
 
     public void inputInField(IForEnumInputFields enumLoginField, String value) {
-        $x(String.format(XPATH_TO_INPUT_BY_ID,  enumLoginField.toString())).should(Condition.visible, Duration.ofSeconds(10)).sendKeys(value);
+        SelenideElement input = $x(String.format(XPATH_TO_INPUT_BY_ID,  enumLoginField.toString())).should(Condition.visible, Duration.ofSeconds(10));
+        input.clear();
+        input.sendKeys(value);
     }
 
     public void clickButtonByAttributeValueWithoutAttributeName(IForEnumButtonsValue enumLoginButton) {

@@ -34,6 +34,7 @@ public class LoginAndLogoutStepdefs {
     @And("I input in field {} value in string {string}")
     public void iInputInfieldValueInString(EnumLoginFields enumLoginFields, String value) {
         System.out.println();
+
         loginPage.inputInField(enumLoginFields, value);
         System.out.println();
     }
@@ -68,7 +69,8 @@ public class LoginAndLogoutStepdefs {
     @And("I checked CashRegister if it is open then open register and if it is close then do nothing")
     public void iCheckedCashRegisterIfItSOpenThenOpenRegisterAndIfItSCloseThenDoNothing() {
         if (!loginPage.cashRegisterIsOpened()){
-            loginPage.clickOnCloseOrOpenRegisterButton();
+//            loginPage.clickOnCloseOrOpenRegisterButton();
+            generalPosPage.clickExpandedDropdownItem(EnumSideBarsIconsAndButtonsName.REGISTER_OPERATIONS, EnumSideBarsIconsAndButtonsName.OPEN_OR_CLOSE_REGISTER);
             System.out.println("Closed cash");
         } else {
             System.out.println("Opened cash");

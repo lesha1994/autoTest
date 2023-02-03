@@ -15,10 +15,10 @@ public class RegressionFlowSterpdefs {
 
 
 
-    @And("I click on {} button in sidebar")
-    public void iClickOnButtonInSidebar(EnumSideBarsIconsAndButtonsName enumSideBarsIconsAndButtonsName) {
-        generalPosPage.clickSideIcon(enumSideBarsIconsAndButtonsName);
-    }
+//    @And("I click on {} button in sidebar")
+//    public void iClickOnButtonInSidebar(EnumSideBarsIconsAndButtonsName enumSideBarsIconsAndButtonsName) {
+//        generalPosPage.clickSideIcon(enumSideBarsIconsAndButtonsName);
+//    }
 
     @And("I click on {} button in Settings dropdowm")
     public void iClickOnDEVICESETTINGButton(EnumSideBarsIconsAndButtonsName enumSideBarsIconsAndButtonsName) {

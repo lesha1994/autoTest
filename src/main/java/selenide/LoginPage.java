@@ -32,9 +32,8 @@ public class LoginPage extends BasePage {
 
     public boolean cashRegisterIsOpened() {
 
-        String textFromElementCashRegister = $x(XPATH_TO_OPEN_OR_CLOSE_REGISTER_BUTTON).should(Condition.visible, Duration.ofSeconds(10)).getText();
-        System.out.println(textFromElementCashRegister
-        );
+        String textFromElementCashRegister = $x(XPATH_TO_OPEN_OR_CLOSE_REGISTER_BUTTON).should(Condition.visible, Duration.ofSeconds(20)).getText();
+        System.out.println("Cash Register: " + textFromElementCashRegister);
 
         return textFromElementCashRegister.contains("Close");
     }

@@ -15,10 +15,7 @@ public class VoidTransactionStepdefs {
     TransactionListPage transactionListPage = new TransactionListPage();
 
 
-    @And("I click on {} button in sidebar")
-    public void iClickOnTransactionButtonInSidebar(EnumSideBarsIconsAndButtonsName enumSideBarsIconsAndButtonsName) {
-        generalPosPage.clickSideIcon(enumSideBarsIconsAndButtonsName);
-    }
+
 
 
 
