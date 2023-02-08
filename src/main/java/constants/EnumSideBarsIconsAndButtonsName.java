@@ -1,7 +1,7 @@
 package constants;
 
 public enum EnumSideBarsIconsAndButtonsName {
-    CART("cart"),
+    CART("icon-cart"),
     TRANSACTIONS("bag"),
     MANUAL_REFUND(""),
     REGISTER_OPERATIONS("icon-cash-register"),
