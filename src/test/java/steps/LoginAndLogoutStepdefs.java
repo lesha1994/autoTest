@@ -6,11 +6,16 @@ import constants.EnumLoginFields;
 import constants.EnumSideBarsIconsAndButtonsName;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import selenide.GeneralPosPage;
 import selenide.LoginPage;
 import utils.ReadProperty;
 
+import java.util.Collections;
+
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class LoginAndLogoutStepdefs {
 
@@ -21,7 +26,15 @@ public class LoginAndLogoutStepdefs {
     public void loginPageIsOpened() {
         Configuration.timeout = 10000;
         Configuration.baseUrl = "https://qa-pos.b2bsoft.com";
+        Configuration.browserSize = "1920x1080";
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("useAutomationExtension", false);
+        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        Configuration.browserCapabilities = desiredCapabilities;
         open("/");
+        System.out.println();
     }
 
     @And("I input in field {} value")
@@ -63,7 +76,7 @@ public class LoginAndLogoutStepdefs {
     public void iClickOnSideBarIcon(EnumSideBarsIconsAndButtonsName enumSideBarsIconsAndButtonsName) {
 
         generalPosPage.clickSideIcon(enumSideBarsIconsAndButtonsName);
-
+        sleep(3000);
     }
 
     @And("I checked CashRegister if it is open then open register and if it is close then do nothing")

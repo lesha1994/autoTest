@@ -6,7 +6,7 @@ import constants.EnumPosSettingPage;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class PosSettingsPage extends  BasePage {
 
@@ -21,8 +21,20 @@ public class PosSettingsPage extends  BasePage {
     private static final String XPATH_TO_POP_UP = "//div[@class = '%s']";
 
     public void clickButtonOnSettingsPage(EnumPosSettingPage enumPosSettingPage){
-        $x(String.format(XPATH_TO_BUTTONS_BY_CLASS,enumPosSettingPage.toString())).click();
-        $x(String.format(XPATH_TO_DEVICE_TYPE,enumPosSettingPage)).click();
+        String locator = String.format(XPATH_TO_BUTTONS_BY_CLASS, enumPosSettingPage.toString());
+        actions().moveToElement($x(locator)).pause(Duration.ofSeconds(3));
+        System.out.println("Text from button: " + $x(locator + "//span").getText());
+        //while (!$x("//span[text()='Terminals']").isDisplayed()) {
+            $x(locator).shouldBe(Condition.visible).click();
+        //}
+        System.out.println();
+    }
+
+    public void clickButtonToChooseDeviceType(EnumPosSettingPage enumPosSettingPage){
+        String locator = String.format(XPATH_TO_DEVICE_TYPE,enumPosSettingPage);
+        $x(locator).hover();
+        sleep(3000);
+        $x(locator).click();
     }
 
     public void clickOnParticularTerminal(EnumPosSettingPage enumPosSettingPage){

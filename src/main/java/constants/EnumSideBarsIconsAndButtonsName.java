@@ -1,11 +1,11 @@
 package constants;
 
 public enum EnumSideBarsIconsAndButtonsName {
-    CART("cart"),
+    CART("icon-cart"),
     TRANSACTIONS("bag"),
     MANUAL_REFUND(""),
     REGISTER_OPERATIONS("icon-cash-register"),
-    SETTINGS("settings"),
+    SETTINGS("icon-settings"),
     SYNCHRONIZE("synchronization"),
     ADDITIONAL_INFO("info"),
     TIME_CLOCK("clock"),

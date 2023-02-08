@@ -32,7 +32,7 @@ public class RegressionFlowSterpdefs {
 
     @And("I click on {} on Device Type Screen")
     public void iClickOnTERMINALSOnDeviceTypeScreen(EnumPosSettingPage enumPosSettingPage) {
-        posSettingsPage.clickButtonOnSettingsPage(enumPosSettingPage);
+        posSettingsPage.clickButtonToChooseDeviceType(enumPosSettingPage);
     }
 
     @And("I click on {} terminal")
